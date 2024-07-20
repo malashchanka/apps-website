@@ -3,26 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
+    <title>My Apps</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .app-description {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Page</h1>
+        <h1>Welcome to My Apps</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="/terms-of-use/">Terms of Use</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <p>This is my personal website hosted on GitHub Pages.</p>
+        <h2>My Applications</h2>
+        <select id="appSelector" onchange="showAppInfo()">
+            <option value="" selected disabled>Select an App</option>
+            <option value="AI Photo Editor">App 1</option>
+            <!-- Add more options here for each app -->
+        </select>
+
+        <div id="appInfo"></div>
+
+        <script>
+            function showAppInfo() {
+                var appSelector = document.getElementById('appSelector');
+                var appInfo = document.getElementById('appInfo');
+                var selectedApp = appSelector.value;
+
+                var appDetails = {
+                    "photo-editor": {
+                        "description": "Our photo editor is a powerful tool that allows you to easily erase backgrounds and objects from your images. With just a few taps, you can create visuals that will make your content out.",
+                        "appStoreLink": "https://apps.apple.com/app/id6473284141",
+                        "privacyPolicy": "/photo-editor/privacy-policy/",
+                        "termsOfUse": "/photo-editor/terms-of-use/"
+                    }
+                    // Add more apps here
+                };
+
+                if (selectedApp in appDetails) {
+                    appInfo.innerHTML = `
+                        <div class="app-description">
+                            <p>${appDetails[selectedApp].description}</p>
+                            <p><a href="${appDetails[selectedApp].appStoreLink}" target="_blank">Download on the App Store</a></p>
+                            <p><a href="${appDetails[selectedApp].privacyPolicy}" target="_blank">Privacy Policy</a> | 
+                               <a href="${appDetails[selectedApp].termsOfUse}" target="_blank">Terms of Use</a></p>
+                        </div>
+                    `;
+                } else {
+                    appInfo.innerHTML = '';
+                }
+            }
+        </script>
     </main>
     <footer>
         <p>&copy; 2024 Mikhail Malashchanka</p>
     </footer>
-    <script src="/js/scripts.js"></script>
 </body>
 </html>
