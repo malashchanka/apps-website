@@ -1,8 +1,10 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -10,6 +12,11 @@ header {
     color: #fff;
     padding: 10px 0;
     text-align: center;
+}
+
+nav {
+    text-align: right;
+    margin-right: 20px; /* Добавлен отступ справа */
 }
 
 nav ul {
@@ -33,6 +40,7 @@ nav ul li a.active {
 }
 
 main {
+    flex: 1;
     padding: 20px;
 }
 
@@ -49,4 +57,8 @@ footer {
 
 .content {
     margin: 20px;
+}
+
+.content p {
+    line-height: 1.6;
 }
