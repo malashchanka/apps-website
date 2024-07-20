@@ -27,30 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = event.state.page;
         }
     });
-});
 
-// For additional debugging: listen for history state changes
-(function(history){
-    const pushState = history.pushState;
+    // For additional debugging: log history state changes
+    const originalPushState = history.pushState;
     history.pushState = function(state) {
-        const result = pushState.apply(history, arguments);
-        window.dispatchEvent(new Event('pushstate'));
+        const result = originalPushState.apply(history, arguments);
         console.log("PushState called:", state);
         return result;
     };
-    const replaceState = history.replaceState;
+
+    const originalReplaceState = history.replaceState;
     history.replaceState = function(state) {
-        const result = replaceState.apply(history, arguments);
-        window.dispatchEvent(new Event('replacestate'));
+        const result = originalReplaceState.apply(history, arguments);
         console.log("ReplaceState called:", state);
         return result;
     };
-})(window.history);
-
-window.addEventListener('pushstate', function() {
-    console.log('Pushstate event triggered');
-});
-
-window.addEventListener('replacestate', function() {
-    console.log('Replacestate event triggered');
 });
