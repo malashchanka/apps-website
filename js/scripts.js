@@ -28,12 +28,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // For additional debugging: log history state changes
-    window.addEventListener("pushstate", function(event) {
-        console.log("Pushstate event:", event.state);
-    });
-
-    window.addEventListener("replacestate", function(event) {
-        console.log("Replacestate event:", event.state);
-    });
+    // Debugging: Listen for history state changes
+    (function(history){
+        var pushState = history.pushState;
+        history.pushState = function(state) {
+            console.log("PushState called:", state);
+            return pushState.apply(history, arguments);
+        };
+        var replaceState = history.replaceState;
+        history.replaceState = function(state) {
+            console.log("ReplaceState called:", state);
+            return replaceState.apply(history, arguments);
+        };
+    })(window.history);
 });
