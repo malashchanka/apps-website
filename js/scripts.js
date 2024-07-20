@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Check if the current path includes 'photo-editor'
+    // Check if the current path includes 'photo-editor' path
     const path = window.location.pathname;
     if (path.includes('/photo-editor/')) {
         // Replace the current state so that it navigates to /apps/ on back button
