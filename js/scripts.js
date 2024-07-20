@@ -20,6 +20,24 @@ document.addEventListener("DOMContentLoaded", function() {
         history.pushState({ page: "/apps/" }, "Our Apps", "/apps/");
     }
 
+    // Debugging: Listen for history state changes
+    (function(history){
+        const pushState = history.pushState;
+        history.pushState = function(state) {
+            const result = pushState.apply(history, arguments);
+            window.dispatchEvent(new Event('pushstate'));
+            console.log("PushState called:", state);
+            return result;
+        };
+        const replaceState = history.replaceState;
+        history.replaceState = function(state) {
+            const result = replaceState.apply(history, arguments);
+            window.dispatchEvent(new Event('replacestate'));
+            console.log("ReplaceState called:", state);
+            return result;
+        };
+    })(window.history);
+
     // Handle the back button to navigate to the correct page
     window.addEventListener("popstate", function(event) {
         console.log("Popstate event:", event.state);
@@ -28,17 +46,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Debugging: Listen for history state changes
-    (function(history){
-        var pushState = history.pushState;
-        history.pushState = function(state) {
-            console.log("PushState called:", state);
-            return pushState.apply(history, arguments);
-        };
-        var replaceState = history.replaceState;
-        history.replaceState = function(state) {
-            console.log("ReplaceState called:", state);
-            return replaceState.apply(history, arguments);
-        };
-    })(window.history);
+    window.addEventListener('pushstate', function() {
+        console.log('Pushstate event triggered');
+    });
+
+    window.addEventListener('replacestate', function() {
+        console.log('Replacestate event triggered');
+    });
 });
