@@ -6,8 +6,11 @@
     <title>My Apps</title>
     <link rel="stylesheet" href="/css/styles.css">
     <style>
-        .app-description {
-            margin-bottom: 20px;
+        .content {
+            margin: 20px;
+        }
+        .content p {
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -17,49 +20,14 @@
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
+                <li><a href="/contacts/">Contact Us</a></li>
+                <li><a href="/apps/">Applications</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <h2>My Applications</h2>
-        <select id="appSelector" onchange="showAppInfo()">
-            <option value="" selected disabled>Select an App</option>
-            <option value="photo-editor">AI Photo Editor</option>
-            <!-- Add more options here for each app -->
-        </select>
-
-        <div id="appInfo"></div>
-
-        <script>
-            function showAppInfo() {
-                var appSelector = document.getElementById('appSelector');
-                var appInfo = document.getElementById('appInfo');
-                var selectedApp = appSelector.value;
-
-                var appDetails = {
-                    "photo-editor": {
-                        "description": "Our photo editor is a powerful tool that allows you to easily erase backgrounds and objects from your images. With just a few taps, you can create visuals that will make your content out.",
-                        "appStoreLink": "https://apps.apple.com/app/id6473284141",
-                        "privacyPolicy": "/photo-editor/privacy-policy/",
-                        "termsOfUse": "/photo-editor/terms-of-use/"
-                    }
-                    // Add more apps here
-                };
-
-                if (selectedApp in appDetails) {
-                    appInfo.innerHTML = `
-                        <div class="app-description">
-                            <p>${appDetails[selectedApp].description}</p>
-                            <p><a href="${appDetails[selectedApp].appStoreLink}" target="_blank">Download on the App Store</a></p>
-                            <p><a href="${appDetails[selectedApp].privacyPolicy}" target="_blank">Privacy Policy</a> | 
-                               <a href="${appDetails[selectedApp].termsOfUse}" target="_blank">Terms of Use</a></p>
-                        </div>
-                    `;
-                } else {
-                    appInfo.innerHTML = '';
-                }
-            }
-        </script>
+    <main class="content">
+        <h2>About</h2>
+        <p>Welcome to the official website of Mikhail Malashchanka's apps. Here you can find all the information about our applications, including privacy policies, terms of use, and download links from the App Store.</p>
     </main>
     <footer>
         <p>&copy; 2024 Mikhail Malashchanka</p>
