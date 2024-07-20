@@ -27,4 +27,13 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = event.state.page;
         }
     });
+
+    // For additional debugging: log history state changes
+    window.addEventListener("pushstate", function(event) {
+        console.log("Pushstate event:", event.state);
+    });
+
+    window.addEventListener("replacestate", function(event) {
+        console.log("Replacestate event:", event.state);
+    });
 });
