@@ -20,24 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
         history.pushState({ page: "/apps/" }, "Our Apps", "/apps/");
     }
 
-    // Debugging: Listen for history state changes
-    (function(history){
-        const pushState = history.pushState;
-        history.pushState = function(state) {
-            const result = pushState.apply(history, arguments);
-            window.dispatchEvent(new Event('pushstate'));
-            console.log("PushState called:", state);
-            return result;
-        };
-        const replaceState = history.replaceState;
-        history.replaceState = function(state) {
-            const result = replaceState.apply(history, arguments);
-            window.dispatchEvent(new Event('replacestate'));
-            console.log("ReplaceState called:", state);
-            return result;
-        };
-    })(window.history);
-
     // Handle the back button to navigate to the correct page
     window.addEventListener("popstate", function(event) {
         console.log("Popstate event:", event.state);
@@ -45,12 +27,30 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = event.state.page;
         }
     });
+});
 
-    window.addEventListener('pushstate', function() {
-        console.log('Pushstate event triggered');
-    });
+// For additional debugging: listen for history state changes
+(function(history){
+    const pushState = history.pushState;
+    history.pushState = function(state) {
+        const result = pushState.apply(history, arguments);
+        window.dispatchEvent(new Event('pushstate'));
+        console.log("PushState called:", state);
+        return result;
+    };
+    const replaceState = history.replaceState;
+    history.replaceState = function(state) {
+        const result = replaceState.apply(history, arguments);
+        window.dispatchEvent(new Event('replacestate'));
+        console.log("ReplaceState called:", state);
+        return result;
+    };
+})(window.history);
 
-    window.addEventListener('replacestate', function() {
-        console.log('Replacestate event triggered');
-    });
+window.addEventListener('pushstate', function() {
+    console.log('Pushstate event triggered');
+});
+
+window.addEventListener('replacestate', function() {
+    console.log('Replacestate event triggered');
 });
