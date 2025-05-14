@@ -1,5 +1,5 @@
 {
-  "last_version": 1.1,
+  "last_version": 1.2,
   "apps": [
     {
       "id": 6505008761,
@@ -7,6 +7,13 @@
       "view_url": "https://apps.apple.com/app/id6505008761",
       "name": "Never Have I Ever Dirty 18+",
       "description": "Party Game for Adults"
+    },
+    {
+      "id": 6745278624,
+      "icon_url": "",
+      "view_url": "https://apps.apple.com/app/id6745278624",
+      "name": "Would You Rather: Dirty Adult",
+      "description": "18+ Wild Drink Party Bold Quiz"
     }
   ]
 }
