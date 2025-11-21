@@ -1,19 +1,26 @@
 {
-  "last_version": 1.2,
+  "last_version": 1.3,
   "apps": [
     {
       "id": 6505008761,
       "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/af/18/a9/af18a9ee-4c3e-ab31-ba47-d2a6aa9d2588/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
       "view_url": "https://apps.apple.com/app/id6505008761",
-      "name": "Never Have I Ever Dirty 18+",
-      "description": "18+ Party Games for Adult"
+      "name": "Never Have I Ever",
+      "description": "Classic Party Game Format"
     },
     {
       "id": 6745278624,
       "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/7b/b9/817bb972-e190-c574-ad22-d27dc3e05106/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
       "view_url": "https://apps.apple.com/app/id6745278624",
-      "name": "Would You Rather: Dirty Adult",
+      "name": "Would You Rather",
       "description": "18+ Dirty Questions Party Game"
+    },
+    {
+      "id": 6749515097,
+      "icon_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/41/c7/5541c7dc-8ac1-5c8c-e030-ae722bf13922/AppIcon-1x_U007ephone-0-1-0-85-220-0.png/100x100bb.jpg",
+      "view_url": "https://apps.apple.com/app/id6749515097",
+      "name": "Truth or Dare",
+      "description": "Adults & Couples Party Game"
     }
   ]
 }
